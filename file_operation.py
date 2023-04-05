@@ -2,10 +2,10 @@ import Note
 
 
 def write_file(arr, mode):
-    file = open("notes.csv", mode='w')
+    file = open("notes.csv", mode='w', encoding='utf-8')
     file.seek(0)
     file.close()
-    file = open("notes.csv", mode=mode)
+    file = open("notes.csv", mode=mode, encoding='utf-8')
     for notes in arr:
         file.write(Note.Note.to_string(notes))
         file.write('\n')
@@ -15,7 +15,7 @@ def write_file(arr, mode):
 def read_file():
     try:
         arr = []
-        file = open("notes.csv", "r")
+        file = open("notes.csv", "r", encoding='utf-8')
         notes = file.read().strip().split("\n")
         for n in notes:
             split_n = n.split(';')
